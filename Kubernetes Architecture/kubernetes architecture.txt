@@ -1,0 +1,14 @@
+Kubernetes Architecture:
+
+Control Plane(Master node)
+1)API server : exposed the cluster to external world, Take the requester from external and decides where the pods need to go
+2)Etcd : details about the cluster information
+3)Scheduler: Schedule the pod in healthy worker node after API server decides where to schedule it
+4)Controller: Ensure always the current state is same the desired state
+5)CCM : Cloud control manager integrates with the cloud technologies running in a cloud environment.
+
+
+Data Plane(Worker node)
+1)Container runtime : Any container runtime, to run containers in worker node.
+2)Kubeproxy : network component that provides network, ensure each pod get ipaddress and loadbalancing across all pod in a service
+3)Kubectl : agents that run on each worker node, responsible for managing the resources, watches the API server for tasks, get the instruction from master and report back to master

@@ -1,0 +1,7 @@
+Errors faced in creating pod
+1)Used kubectl describe pod [pod_name] to see the detailed pod informations                      
+Reason : CrashBackloopoff
+Cause : Resource limit is not enough
+
+2)Reason :OOMKilled
+Cause: Take the thread dump and heap dump 

@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx
+  labels:
+    app: nginxdeploy
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+        app: nginxdeploy
+  template:
+    metadata: 
+      labels: 
+        app: nginxdeploy
+    spec:
+     containers:
+      - name: nginximage
+        image: nginx:1.14.2
+        ports:
+         - containerPort: 80
+        volumeMounts:
+         - name: my-volume
+           mountPath: /var/local/aaa
+     volumes:
+      - name: my-volume
+        hostPath:
+          path: /var/local/aaa
+                

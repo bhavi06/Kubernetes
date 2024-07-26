@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata: 
+    name: statefulapplication
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+       name: demopod
+  template:
+    metadata:
+      labels:
+        name: demopod
+    spec:
+     containers:   
+     - name: nginximage
+       image: nginx:1.14.2
+       ports:
+       - containerPort: 80    

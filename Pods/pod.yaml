@@ -1,0 +1,29 @@
+apiVersion : v1
+kind: Pod
+metadata: 
+     name: cicdpipeline
+spec:
+   containers:
+   - name: jenkins
+     image: jenkins/jenkins   
+     ports:
+      - containerPort: 8080
+     resources:
+      requests: 
+        cpu : "0.5"
+        memory: "250Mi"
+      limits:
+        cpu: "1"
+        memory: "500Mi"
+     args:
+      - /bin/sh
+      - -c
+      - touch /tmp/healthy; sleep 30; rm -f /tmp/healthy; sleep 60
+     livenessProbe:
+       exec:
+        command:
+        - cat
+        - /tmp/healthy
+       initialDelaySeconds: 10
+       periodSeconds: 10
+   

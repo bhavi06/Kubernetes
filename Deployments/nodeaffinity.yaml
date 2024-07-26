@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx
+  labels:
+    app: nginxdeploy
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+        app: nginxdeploy
+  template:
+    metadata: 
+      labels: 
+        app: nginxdeploy
+    spec:
+     containers:
+      - name: nginximage
+        image: nginx:1.14.2
+    #  affinity:
+    #   nodeAffinity:
+    #    preferredDuringSchedulingIgnoredDuringExecution:
+    #     - weight: 1
+    #       preference:
+    #        matchExpressions:
+    #        - key: hostname
+    #          operator: In
+    #          values: 
+    #          - localcluster-worker
+    #  affinity:
+    #   nodeAffinity:
+    #     requiredDuringSchedulingIgnoredDuringExecution:
+    #       nodeSelectorTerms:
+    #       - matchExpressions:
+    #          - key: kubernetes.io/hostname
+    #            operator: In
+    #            values: 
+    #            - localcluster-worker  
+    #  nodeName: localcluster-worker       

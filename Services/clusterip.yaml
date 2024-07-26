@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: clusterip
+spec:
+  type: ClusterIP
+  selector:
+    app: nginxdeploy
+  clusterIP: 10.96.1.10
+  ports:
+  - name: nginxport
+    port: 80
+    protocol: TCP
+    targetPort: 80
+  
