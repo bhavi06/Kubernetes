@@ -31,4 +31,4 @@ kubectl get pods -o wide
 4)To create a namespace and set that namespace as current
 kubectl create namespace [namespace_name]
 kubectl config set-context --current --namespace=demo
-5)
+
