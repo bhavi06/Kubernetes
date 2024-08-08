@@ -1,4 +1,4 @@
-Kubernetes 
+**Kubernetes **:
 Two important properties it offer:
 1) AUTOSCALING
 2) AUTOHEALING
